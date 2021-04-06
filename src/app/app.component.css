@@ -1,0 +1,28 @@
+.mat-elevation-z8{
+    color: #673bb6;
+    background-color: white!important;
+    position: absolute;
+    width: 20em;
+    height: 12em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-button{
+    margin-top: -20px;
+    margin-left: 20px;
+    text-align:right;
+}
+
+.login-field{
+    margin-left: 15px;
+}
+
+.login-header{
+    text-align: left;
+}
+
+.login-title{
+    text-align: left;
+}
