@@ -1,0 +1,38 @@
+
+<mat-toolbar color="primary">
+    <span></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Krausi-Chat</span>
+</mat-toolbar>
+<div id="content-wrapper">
+    <div id="rooms">
+        <mat-card *ngFor="let r of rooms" class="room-entry" 
+            (click)="switchRoom(r)"
+            [ngStyle]="{'background-color': (r == this.selectedRoom ? 'gainsboro' : 'gray')}">
+            <span>{{ r.name }}</span>
+            <button mat-icon-button class="btn btn-danger" (click)="deleteRoom(r)">
+                <mat-icon>delete</mat-icon>
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            <button mat-icon-button class="btn btn-danger" (click)="editRoom(r)">
+                <mat-icon>settings</mat-icon>
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </mat-card>
+        <div id="createRoom">
+            <mat-form-field id="create-room-form">
+                <input matInput placeholder="Name" [(ngModel)]="createRoomModel.roomName"><br>
+                <mat-label>Name</mat-label>
+            </mat-form-field>
+            <button id="button-create-room" mat-raised-button mat-button (click)="createRoom()">Create Room</button>
+        </div>
+    </div>
+    <mat-card id="chat-card">
+        <textarea id="chatbox" readonly="true" wrap="hard" autofocus="false">{{ chat }}</textarea>
+        <textarea id="prompt-box" [(ngModel)]="messagePrompt"></textarea>
+        <button id="button-submit" mat-raised-button mat-button (click)="sendMessage()">Submit</button>
+    </mat-card>
+    <app-room-management></app-room-management>
+</div>

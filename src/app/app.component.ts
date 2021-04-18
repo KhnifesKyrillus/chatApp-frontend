@@ -1,24 +1,16 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import {  Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'ChatApp';
+export class AppComponent implements OnInit {
 
-  userNameFormControl = new FormControl('', [
-    Validators.required,
-]);
-constructor(private router: Router) {
-
-}
-
-public setUsername():void{
-  environment.username=this.userNameFormControl.value;
-  this.router.navigateByUrl('/chat-view');}
+    constructor(private router: Router) { }
+    
+    async ngOnInit(): Promise<any> {
+        await this.router.navigate(["/login"])
+    }
 }
