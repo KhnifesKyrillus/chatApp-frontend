@@ -3,7 +3,11 @@
     <span></span>
     <span>Chat</span>
 </mat-toolbar>
+<button mat-icon-button class="refresh" (click)="getRooms()">
+    <mat-icon>refresh</mat-icon>
+  </button>
 <div id="content-wrapper">
+    
     <div id="rooms">
         <mat-card *ngFor="let r of rooms" class="room-entry" 
             (click)="switchRoom(r)"
@@ -29,7 +33,7 @@
     <mat-card id="chat-card">
         <textarea id="chatbox" readonly="true" wrap="hard" autofocus="false">{{ chat }}</textarea>
         <textarea id="prompt-box" [(ngModel)]="messagePrompt"></textarea>
-        <button id="button-submit" mat-raised-button mat-button (click)="sendMessage()">Submit</button>
+        <button id="button-submit" mat-raised-button mat-button (click)="sendMessage()"><mat-icon>send</mat-icon></button>
     </mat-card>
     <app-room-management></app-room-management>
 </div>

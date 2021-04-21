@@ -32,8 +32,17 @@
         mat-button
         (click)="addMember()"
       >
-        Add User
+      <mat-icon>add</mat-icon>
       </button>
     </div>
+    Show users:
+    <button mat-icon-button (click)="getUsers()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <md-list-item *ngFor="let item of usernames">
+      <div>
+        <li>{{ item }}</li>
+      </div>
+    </md-list-item>
   </mat-card>
 </div>

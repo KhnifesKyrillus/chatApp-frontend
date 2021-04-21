@@ -5,7 +5,8 @@
         <mat-label>Username</mat-label>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Password" [(ngModel)]="loginModel.password"><br>
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="loginModel.password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-label>Password</mat-label>
     </mat-form-field>
     <br>

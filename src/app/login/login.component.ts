@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private router: Router, private client: HttpClient, private snackBar: MatSnackBar) { }
 
-    loginModel: LoginModel = new LoginModel("jwt", "masmm", "masmm");
+    loginModel: LoginModel = new LoginModel("jwt", null, null);
+    hide = true;
 
     async ngOnInit() {
         //await this.performLogin(); // TODO: Comment this lime

@@ -81,3 +81,8 @@
     width: 30vw;
     left: 2em;
 }  
+
+#refresh{
+    position: left;
+    margin: 10px;
+}

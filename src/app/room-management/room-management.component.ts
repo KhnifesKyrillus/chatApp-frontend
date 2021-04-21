@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Room, User } from '../chat/chat.component';
+import { Globals } from '../generic/globals';
 import { RestService } from '../service/rest.service';
 
 @Component({
@@ -20,6 +21,8 @@ export class RoomManagementComponent implements OnInit {
     
     roomMembers: User[];
 
+    usernames:string[];
+
     constructor(public rest: RestService) { }
 
     async ngOnInit() {
@@ -38,6 +41,10 @@ export class RoomManagementComponent implements OnInit {
     async removeMember(member: User) {
         await this.rest.removeRoomMember(this.currentRoom, member);
         await this.loadData();
+    }
+
+    async getUsers(){
+        this.usernames=await this.rest.getProtectedResource<String[]>(Globals.API_URL+"getUsernames");
     }
 
     async addMember() {
