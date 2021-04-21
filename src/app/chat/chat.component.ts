@@ -34,7 +34,6 @@ export class ChatComponent implements OnInit {
     constructor(private router: Router, private rest: RestService, private client: HttpClient, private snackBar: MatSnackBar, private websocket: WebsocketService) { }
     
     async ngOnInit(): Promise<any> {
-        //await this.performLogin(); // TODO: Comment this
         await this.getRooms();
 
         this.managementComponent.windowClosed.subscribe(() => {
@@ -115,12 +114,12 @@ export class ChatComponent implements OnInit {
                 this.chat = ""; // Clear the chat
                 for (let entry of messages) {
                     const message: Message = entry as Message;
-                    this.chat += "[" + message.timestamp + "] " + message.user.name + ": " + message.message + "\n";
+                    this.chat += "[" + this.formatTimestamp(message.timestamp) + "] " + message.user.name + ": " + message.message + "\n";
                 }
             });
     }
 
     formatTimestamp(timeStamp: Date): string {
-        return timeStamp.getHours() + ":" + timeStamp.getMinutes() + ":" + timeStamp.getSeconds();
+        return  timeStamp[3] + ":" + timeStamp[4] + ":" + timeStamp[5];
     }
 }

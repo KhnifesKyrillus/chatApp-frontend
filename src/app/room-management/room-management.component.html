@@ -1,22 +1,39 @@
 <div id="room-management-container" *ngIf="visible">
-    <mat-card id="room-management-pane">
-        <h1>Room Management</h1><br>
-        <p>Users in this room:</p><br>
-        <div *ngFor="let member of roomMembers">
-            <mat-card>
-                <span>{{ member.name }}</span>
-                <button mat-icon-button class="btn btn-danger" (click)="removeMember(member)">
-                    <mat-icon>delete</mat-icon>
-                    <span class="glyphicon glyphicon-trash"></span>
-                </button>
-            </mat-card>
-        </div>
-        <div id="add-member">
-            <mat-form-field id="add-member-form">
-                <input matInput placeholder="Username" [(ngModel)]="addMemberModel"><br>
-                <mat-label>Username</mat-label>
-            </mat-form-field>
-            <button id="button-create-room" mat-raised-button mat-button (click)="addMember()">Create Room</button>
-        </div>
-    </mat-card>
+  <mat-card id="room-management-pane">
+    <h1>Room Management</h1>
+    <br />
+    <p>Users in this room:</p>
+    <br />
+    <div *ngFor="let member of roomMembers">
+      <mat-card>
+        <span>{{ member.name }}</span>
+        <button
+          mat-icon-button
+          class="btn btn-danger"
+          (click)="removeMember(member)"
+        >
+          <mat-icon>delete</mat-icon>
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </mat-card>
+    </div>
+    <div id="add-member">
+      <mat-form-field id="add-member-form">
+        <input
+          matInput
+          placeholder="Username"
+          [(ngModel)]="addMemberModel"
+        /><br />
+        <mat-label>Username</mat-label>
+      </mat-form-field>
+      <button
+        id="button-create-room"
+        mat-raised-button
+        mat-button
+        (click)="addMember()"
+      >
+        Add User
+      </button>
+    </div>
+  </mat-card>
 </div>
